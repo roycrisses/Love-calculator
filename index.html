@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator — 100% Fun Compatibility Test (Free Online)</title>
+    <meta name="description" content="Check your love compatibility instantly. Enter two names and get a fun, deterministic score with tips. Free, private, and works on any device.">
+    <meta name="keywords" content="love calculator, compatibility test, name match, relationship score, free love test">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lovecalculator.com/">
+    <meta property="og:title" content="Love Calculator — 100% Fun Compatibility Test">
+    <meta property="og:description" content="Check your love compatibility instantly. Enter two names and get a fun, deterministic score with tips.">
+    <meta property="og:image" content="https://lovecalculator.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lovecalculator.com/">
+    <meta property="twitter:title" content="Love Calculator — 100% Fun Compatibility Test">
+    <meta property="twitter:description" content="Check your love compatibility instantly. Enter two names and get a fun, deterministic score with tips.">
+    <meta property="twitter:image" content="https://lovecalculator.com/og-image.jpg">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Love Calculator",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "description": "A fun compatibility calculator that determines love compatibility between two people based on their names and optional birthdates."
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">💕 Love Calculator</h1>
+            <p class="tagline">Discover your compatibility score instantly!</p>
+        </header>
+
+        <!-- Main Calculator Form -->
+        <main class="main-content">
+            <form id="loveForm" class="love-form" novalidate>
+                <div class="form-group">
+                    <label for="nameA" class="form-label">Your Name</label>
+                    <input 
+                        type="text" 
+                        id="nameA" 
+                        name="nameA" 
+                        class="form-input" 
+                        placeholder="Enter your name"
+                        required
+                        aria-describedby="nameA-error"
+                        autocomplete="given-name"
+                    >
+                    <div id="nameA-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nameB" class="form-label">Partner's Name</label>
+                    <input 
+                        type="text" 
+                        id="nameB" 
+                        name="nameB" 
+                        class="form-input" 
+                        placeholder="Enter partner's name"
+                        required
+                        aria-describedby="nameB-error"
+                        autocomplete="given-name"
+                    >
+                    <div id="nameB-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="form-group optional-section">
+                    <h3 class="section-title">Optional: Add Birthdates for More Accuracy</h3>
+                    
+                    <div class="date-inputs">
+                        <div class="date-group">
+                            <label for="dobA" class="form-label">Your Birthdate</label>
+                            <input 
+                                type="date" 
+                                id="dobA" 
+                                name="dobA" 
+                                class="form-input"
+                                aria-describedby="dobA-error"
+                                autocomplete="bday"
+                            >
+                            <div id="dobA-error" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+
+                        <div class="date-group">
+                            <label for="dobB" class="form-label">Partner's Birthdate</label>
+                            <input 
+                                type="date" 
+                                id="dobB" 
+                                name="dobB" 
+                                class="form-input"
+                                aria-describedby="dobB-error"
+                                autocomplete="bday"
+                            >
+                            <div id="dobB-error" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="calculateBtn">
+                        Calculate Love Score 💖
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="resetBtn">
+                        Reset
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Card -->
+            <div id="resultCard" class="result-card hidden" role="region" aria-labelledby="result-title">
+                <h2 id="result-title" class="result-title">Your Love Score</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="scoreValue" class="score-value">0</span>
+                        <span class="score-percent">%</span>
+                    </div>
+                </div>
+                <div id="scoreMessage" class="score-message"></div>
+                <div id="scoreTips" class="score-tips"></div>
+                
+                <!-- Share Buttons -->
+                <div class="share-section">
+                    <h3 class="share-title">Share Your Result</h3>
+                    <div class="share-buttons">
+                        <button id="copyLinkBtn" class="btn btn-share" title="Copy Link">
+                            📋 Copy Link
+                        </button>
+                        <button id="whatsappBtn" class="btn btn-share" title="Share on WhatsApp">
+                            📱 WhatsApp
+                        </button>
+                        <button id="facebookBtn" class="btn btn-share" title="Share on Facebook">
+                            📘 Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AdSense Placeholder 1 -->
+            <div class="ad-placeholder" id="ad-below-result">
+                <!-- AdSense code will be inserted here -->
+                <div class="ad-label">Advertisement</div>
+            </div>
+
+            <!-- Recent Calculations -->
+            <div id="recentCalculations" class="recent-section hidden">
+                <h3 class="section-title">Recent Calculations</h3>
+                <div id="recentList" class="recent-list"></div>
+            </div>
+        </main>
+
+        <!-- SEO Content Section -->
+        <section class="seo-content">
+            <div class="faq-section">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">How does the Love Calculator work?</h3>
+                    <div class="faq-answer">
+                        <p>Our Love Calculator uses a deterministic algorithm that analyzes the compatibility between two names and optional birthdates. The same inputs will always produce the same result, ensuring consistency and reliability.</p>
+                    </div>
+                </div>
+
+                <!-- AdSense Placeholder 2 -->
+                <div class="ad-placeholder" id="ad-between-faq">
+                    <div class="ad-label">Advertisement</div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Is my data safe and private?</h3>
+                    <div class="faq-answer">
+                        <p>Absolutely! All calculations happen entirely in your browser. No personal information is sent to our servers or stored anywhere except locally on your device (if you choose to save recent calculations).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I share my results?</h3>
+                    <div class="faq-answer">
+                        <p>Yes! You can easily share your compatibility results via a unique link, WhatsApp, or Facebook. The shared link will show the same result to anyone who clicks it.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Do birthdates affect the score?</h3>
+                    <div class="faq-answer">
+                        <p>Adding birthdates can provide a small bonus to your compatibility score (up to 7 additional points) based on numerological factors. However, names are the primary factor in the calculation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Is this scientifically accurate?</h3>
+                    <div class="faq-answer">
+                        <p>The Love Calculator is designed for entertainment purposes only. While it uses a consistent algorithm, it should not be considered scientific or professional relationship advice.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="how-it-works">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Enter Names</h3>
+                            <p>Input both names using letters, spaces, apostrophes, and hyphens only.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Add Birthdates (Optional)</h3>
+                            <p>Include birthdates for a more personalized compatibility score.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Get Your Score</h3>
+                            <p>Receive your compatibility percentage with personalized tips and advice.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Share Results</h3>
+                            <p>Share your love score with friends via social media or direct link.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <!-- AdSense Placeholder 3 -->
+            <div class="ad-placeholder" id="ad-footer">
+                <div class="ad-label">Advertisement</div>
+            </div>
+
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                    <a href="terms.html" class="footer-link">Terms of Use</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2024 Love Calculator. Made with 💕 for entertainment purposes.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Load JavaScript -->
+    <script src="app.js" defer></script>
+</body>
+</html>
