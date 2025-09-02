@@ -7,7 +7,7 @@
     --secondary-color: #FF6B81;
     --accent-color: #FFC1CC;
     --bg-light: #FFF5F7;
-    --bg-dark: #2D0C1D;
+    --bg-dark: #4A1B2E;
     --text-primary: #2B2B2B;
     --text-secondary: #6B6B6B;
     --success-color: #4CAF50;
@@ -738,13 +738,14 @@ body::before {
 
 /* Footer */
 .footer {
-    background: var(--bg-dark);
+    background: linear-gradient(135deg, #4A1B2E 0%, #6B2737 100%);
     border-radius: 20px;
     padding: 2.5rem;
     text-align: center;
     color: var(--accent-color);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 -4px 20px rgba(230, 57, 70, 0.1);
 }
 
 .footer::before {
@@ -753,8 +754,9 @@ body::before {
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), var(--secondary-color));
+    box-shadow: 0 2px 8px rgba(255, 107, 129, 0.3);
 }
 
 .footer-links {
@@ -1092,8 +1094,9 @@ z-index: 1000;
 @media (prefers-color-scheme: dark) {
     .main-content,
     .seo-content {
-        background: var(--bg-dark);
+        background: linear-gradient(135deg, #4A1B2E 0%, #5D2332 100%);
         color: var(--accent-color);
+        border: 1px solid rgba(255, 193, 204, 0.1);
     }
     
     .form-input {
@@ -1108,8 +1111,9 @@ z-index: 1000;
     
     .optional-section,
     .recent-section {
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 193, 204, 0.05);
         border-color: var(--accent-color);
+        backdrop-filter: blur(10px);
     }
     
     .faq-question,
@@ -1127,12 +1131,12 @@ z-index: 1000;
     }
     
     .contact-method {
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 193, 204, 0.05);
         border-left-color: var(--secondary-color);
     }
     
     .response-time {
-        background: rgba(230, 57, 70, 0.1);
+        background: linear-gradient(135deg, rgba(230, 57, 70, 0.1) 0%, rgba(255, 107, 129, 0.1) 100%);
     }
     
     .response-time h2 {
