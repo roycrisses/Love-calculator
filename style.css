@@ -9,7 +9,7 @@
     --bg-light: #FFF5F7;
     --bg-dark: #ec88b0;
     --text-primary: #2B2B2B;
-    --text-secondary: #6b6b6b;
+    --text-secondary: #030000;
     --success-color: #4CAF50;
     --error-color: #E63946;
     --white: #FFFFFF;
@@ -744,14 +744,17 @@ body::before {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, #4A1B2E 0%, #6B2737 100%);
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    background-image: none !important;
     border-radius: 20px;
     padding: 2.5rem;
     text-align: center;
-    color: var(--accent-color);
+    color: var(--text-primary);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 -4px 20px rgba(230, 57, 70, 0.1);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.1);
+    border: 1px solid rgba(255, 193, 204, 0.2);
 }
 
 .footer::before {
