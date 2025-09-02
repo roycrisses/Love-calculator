@@ -663,25 +663,6 @@ body::before {
     font-size: 1.1rem;
 }
 
-/* Ad Placeholders */
-.ad-placeholder {
-    background: #f8f9fa;
-    border: 2px dashed #dee2e6;
-    border-radius: 8px;
-    padding: 2rem;
-    text-align: center;
-    margin: 2rem 0;
-    min-height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ad-label {
-    color: #6c757d;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
 
 /* SEO Content */
 .seo-content {
